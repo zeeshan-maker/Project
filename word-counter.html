@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wourd Counter</title>
+    <style>
+        #main{
+            width: 800px;
+            margin: auto;
+            text-align: center;
+            margin-top: 100px;
+            
+            
+        }
+        #top{
+            background-color: firebrick;
+            color: white;
+            margin: 0;
+            padding: 15px;
+        }
+        textarea{
+            width: 99.3%;
+            height: 300px;
+            font-size: 22px;
+            margin: 0;
+            
+        }
+        h2{
+            background-color: firebrick;
+            color: white;
+            margin: 0;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 id="top">Word and character Counter</h1>
+        <textarea name="" id="textbox" cols="30" rows="10"></textarea>
+        <h2 id="counter">
+            <span id="word">0</span> words and <span id="char">0 </span> characters
+        </h2>
+    </div>
+
+    <script>
+        let textbox=document.getElementById("textbox");
+        textbox.addEventListener('input',function(){
+            let text=this.value;
+            document.getElementById("char").innerHTML=text.length;
+
+            text=text.trim();
+            let word=text.split(" ");
+            let cleanList= word.filter(function(ele){
+                return ele !="";
+            });
+            document.getElementById("word").innerHTML=cleanList.length;
+
+           
+        });
+        
+    </script>
+</body>
+</html>
